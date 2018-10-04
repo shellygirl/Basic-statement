@@ -2,6 +2,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+#include<Windows.h>
 //int Isprime(int x)
 //{
 //	int y = 2;
@@ -146,7 +148,7 @@
 //	}
 //}
 //求两个数的最大公约数:
-int main(int x, int y)
+int main()
 {
 	/*printf("请输入两个整数(用空格隔开):\n");
 	int i = 1;
@@ -201,14 +203,121 @@ int main(int x, int y)
 	}
 	num++;*/
 
-//	int i = 0;
-//	int k = 0;
-//	for (i = 0, k = 0; k = 0; i++, k++)
-//	{
-//	k++;
-//	printf("hehe\n");
-//}
-	char[]=
+	//	int i = 0;
+	//	int k = 0;
+	//	for (i = 0, k = 0; k = 0; i++, k++)
+	//	{
+	//	k++;
+	//	printf("hehe\n");
+	//}
+	//char str1[] = "welcome to bit";
+	//char str2[] = "**************";
+	//printf("%s\n", str2);
+	//int left = 0;
+	//int right = strlen(str1) - 1; //字符串个数减一
+	//while (left <= right)//当左边的字符串个数等于右边或右边的字符串覆盖了左边,则跳出循环
+	//{
+	//	str2[left] = str1[left];//每加一次将str1左边的字符串赋给str2
+	//	str2[right] = str1[right];//每加一次将str1右边的字符串赋给str2
+	//	printf("%s/\n", str2);//打印str2
+	//	Sleep(100);//Sleep语句用来实现
+	//	left++;
+	//	right--;
+	//}
+	//用for语句实现该循环:
+	/*for (; left <= right; left++, right--)
+	{
+	str2[left] = str1[left];
+	str2[right] = str1[right];
+	printf("%s\n", str2);
+	Sleep(200);
+	}*/
+	//练习将三个数从大到小输出
+	//算法分析:定义三个数,以及max,min
+	//第一步比较前两个数,将较大的数赋给max,将较小的数赋给min
+	//第二步将第三个数和max,min分别作比较,
+	//如果第三个数大于max,则输出num3,max,min;如果第三个数小于min则输出max,min,num3;其他情况则输出max,num3,min
+	//int num1 = 0;
+	//int num2 = 0;
+	//int num3 = 0;
+	//printf("请输入三个整数(用空格隔开):");
+	//scanf("%d %d %d", &num1, &num2, &num3);
+	//int max = num1;
+	//int min = num2;//max和min必须定义在输入指令之后
+	//if (num1 <= num2)
+	//{
+	//	max = num2;
+	//	min = num1;
+	//}
+	//if (num3 > max)
+	//{
+	//	printf("%d %d %d", num3, max, min);
+	//}
+	//if (num3 < min)
+	//{
+	//	printf("%d %d %d", max, min, num3);
+	//}
+	//   if (num3 <= max && num3 >= min)
+	//{
+	//	printf("%d %d %d ", max,num3, min);
+	//}
+
+	//char a[] = "i want to go to bilibili!";
+	//char b[] = "*****no, you do not.*****";
+	//printf("%s\n",a);
+	//int left = 0;
+	//int right = strlen(a)-1 ;
+	//while (left <= right)
+	//{
+	// a[left] = b[left];
+	// a[right] = b[right];
+	// printf("%s\n", a);//一个转义字符的错用而导致的错误.
+	// Sleep(150);
+	// left++;
+	// right--;
+	//}
+	//练习题:将数组a中的内容与数组b中的内容进行交换
+	//int a[] = { 1,2,3 };
+	//int b[] = { 3,2,1 };
+	////printf("请输入a组三个整数(用空格隔开):");
+	////scanf("%d %d %d\n", &a[0],&a[1],&a[2]);
+	////printf("请输入b组三个整数(用空格隔开):");
+	//int N = sizeof(a)/sizeof(int);
+	//printf("将两组数字调换顺序之后:\n");
+	//int i = 0;
+	//for (i = 0; i < N; i++);
+	//{
+	//	int tmp = a[i];
+	//	 a[i] = b[i];
+	//	 b[i] = tmp;
+	//}
+	//for (i = 0; i < N; i++)
+	//{
+	//	printf("%d ", a[i]);
+	//}
+	//printf("\n");
+	//for (i = 0; i < N; i++)
+	//{
+	//	printf("%d ", b[i]);
+	//}
+	//printf("\n");
+	//bug:打印出的结果是交换之前的结果,原因未知.
+//练习计算1/1-1/2+1/3-1/4+1/5 …… + 1/99 - 1/100 的值。 
+double sum = 0;
+int i = 1;
+for (; i < 101; i++)
+{
+	if (i % 2 == 0)
+	{
+		sum += 1.0 / i;
+	}
+	else {
+		sum -= 1.0 / i;
+	}
+}
+  printf("%fl", sum);
+
 	system("pause");
 	return 0;
+
 }
