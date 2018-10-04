@@ -1,9 +1,9 @@
-//100-200之间素数的实现：
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<Windows.h>
+//100-200之间素数的实现：
 //int Isprime(int x)
 //{
 //	int y = 2;
@@ -148,8 +148,8 @@
 //	}
 //}
 //求两个数的最大公约数:
-int main()
-{
+//int main()
+//{
 	/*printf("请输入两个整数(用空格隔开):\n");
 	int i = 1;
 	int max = 1;
@@ -169,7 +169,7 @@ int main()
 	switch (num){
 	case 1:
 	printf("Monday\n");
-	break;
+	break;//break不能省略,否则可能会继续执行下一条语句.
 	case 2:
 	printf("Tusday\n");
 	break;
@@ -188,7 +188,7 @@ int main()
 	case 7:
 	printf("Sunday\n");
 	break;
-	default:
+	default://default语句用来接收其他情况.
 	printf("Illegal Immportation\n");
 	break;
 	}*/
@@ -274,15 +274,15 @@ int main()
 	// printf("%s\n", a);//一个转义字符的错用而导致的错误.
 	// Sleep(150);
 	// left++;
-	// right--;
+	// right--;//记得right--,若++则会形成无限循环
 	//}
 	//练习题:将数组a中的内容与数组b中的内容进行交换
 	//int a[] = { 1,2,3 };
 	//int b[] = { 3,2,1 };
 	////printf("请输入a组三个整数(用空格隔开):");
-	////scanf("%d %d %d\n", &a[0],&a[1],&a[2]);
+	////scanf("%3d\n", &a);
 	////printf("请输入b组三个整数(用空格隔开):");
-	//int N = sizeof(a)/sizeof(int);
+	//int N = sizeof(a)/sizeof(a[0]);//用数组所占的存储单元长度除以一个存储单元长度可以得到该数组的元素数目
 	//printf("将两组数字调换顺序之后:\n");
 	//int i = 0;
 	//for (i = 0; i < N; i++);
@@ -301,23 +301,70 @@ int main()
 	//	printf("%d ", b[i]);
 	//}
 	//printf("\n");
-	//bug:打印出的结果是交换之前的结果,原因未知.
+	//存在bug:打印出的结果是交换之前的结果,原因未知.需要调试
 //练习计算1/1-1/2+1/3-1/4+1/5 …… + 1/99 - 1/100 的值。 
-double sum = 0;
-int i = 1;
-for (; i < 101; i++)
-{
-	if (i % 2 == 0)
-	{
-		sum += 1.0 / i;
-	}
-	else {
-		sum -= 1.0 / i;
-	}
-}
-  printf("%fl", sum);
-
-	system("pause");
-	return 0;
-
-}
+//double sum = 0;//sum的最终结果为小数,注意用double进行定义
+//int i = 1;
+//for (; i < 101; i++)
+//{
+//	if (i % 2 == 0)
+//	{
+//		sum += 1.0 / i;//c语言中整数除以整数等于整数,因此需要将整数精确到小数点后.
+//	}
+//	else {
+//		sum -= 1.0 / i;
+//	}//sum+=1.0/i:每次循环给sum加上1.0/i.-=同上.
+//}
+//  printf("%fl", sum);//用double作为定义时,输出的格式声明常用%fl,而非浮点数%f
+//实现1-100之间数字9出现的次数:
+//int calnine(int x)
+//{
+//	int count = 0;
+//	if (x % 10 == 9)
+//	{
+//		++count;
+//	}
+//	if (x / 10 == 9)//是除以是10等于9哦不是除以9等于10,如果是后者则无法算进99,
+//		//此处用到了c语言中整数除以整数会将小数部分直接抹去的规则.
+//	{
+//		++count;//如果出现符合条件的x,则将count加一
+//	}
+//	return count;//此处做个标记,对return的用法需要加深理解.存疑:返回count的意思是将结果赋给count
+//	//(试了一下,倘若换成return 1,2,3,则后续程序输出结果为100,200,300;若换成return 0,则后续程序结果为0)
+//}
+//int main()
+//{
+//	int count = 0;
+//	int x = 0;
+//	for (x = 0; x < 100; ++x)
+//	{
+//		count += calnine(x);//此处需要加深对函数调用的认知,以及+=与-=的含义及用法
+//	}
+//	printf("1-100之间数字9出现的个数为:%d\n", count);
+//int main()
+//{
+//	//模拟网站登录场景:输入密码时三次出错则冻结:
+//	//该题需要了解输入的密码是字符串而非数字,定义时用到char.
+//	//以及新的关键字strcmp:比较每个字符的ASC码值是否相等,(两个字符串的比较不可以直接用==,)
+//	//若返回的值小于0则说明字符串中出现了ASC码小于真实情况的字符,return0则说明两个字符串完全相等,大于零则...
+//	//"字典序".
+//	int time = 0;
+//	for (; time < 3; time++)
+//	{
+//		printf("请输入密码:\n");
+//		char Password[1024] = { 0 };
+//		scanf("%s", Password);
+//		if (strcmp(Password, "123456") == 0);//如果此处忘记 == 0;则逻辑结果正好相反;
+//		{
+//			printf("登录成功!\n");
+//			break;//此处出现不知名bug,break未能作用.
+//		} 
+//	}
+//	if (time == 3)
+//	{
+//		printf("三次密码错误!禁止登录!");
+//	}
+//system("pause");
+//	return 0;
+//
+//}
