@@ -58,8 +58,8 @@
 //	}
 //	system("pause");
 //	return 0;
-	/*}*///若一时无法用函数定义，可先用两个循环语句嵌套而后再转为函数定义；
-	//1000-2000年之间的闰年：
+//	/*}*///若一时无法用函数定义，可先用两个循环语句嵌套而后再转为函数定义；
+//	1000-2000年之间的闰年：
 //int Leapyear(int x)
 //{
 //	if (x % 400 == 0)
@@ -94,27 +94,27 @@
 //用数组与while语句实现比较并打印十个数之中的最大值:
 //int main()
 //{
-	//int arr[10] = { 23, 45, -2, 4, 333, 44, 5, 8, 0, 34, };
-	//int max = arr[0];
-	//int i=1;
-	////while (i <= 9)
-	////{
-	////	if (arr[i] >= max)
-	////	{
-	////		max = arr[i];	//存疑:如果将max换成arr[i-1],则会输出最后一个数.
-	////		//解答:变量的生命周期只在一次循环内.一次循环过后则会更新.
-	////		//因此,在循环语句中用一个变量与另一个变量作比较,在下一次循环中是无效的.
-	////		//这也是为什么不能将该循环需要用到的变量统一定义在主函数区域,需要注意,而for语句将变量的定义简化了.//此条存疑
-	////	}
-	////	i++;
-	////}
-	////用for语句实现最大值的比较输出:
-	//for (;i<=9; i++)
-	//if (arr[i] >= max)
-	//	max = arr[i];
-	//printf("%d\n", max);
-	//system("pause");
-	//return 0;
+//	int arr[10] = { 23, 45, -2, 4, 333, 44, 5, 8, 0, 34, };
+//	int max = arr[0];
+//	int i=1;
+//	while (i <= 9)
+//	{
+//		if (arr[i] >= max)
+//		{
+//			max = arr[i];	//存疑:如果将max换成arr[i-1],则会输出最后一个数.
+//			//解答:变量的生命周期只在一次循环内.一次循环过后则会更新.
+//			//因此,在循环语句中用一个变量与另一个变量作比较,在下一次循环中是无效的.
+//			//这也是为什么不能将该循环需要用到的变量统一定义在主函数区域,需要注意,而for语句将变量的定义简化了.//此条存疑
+//		}
+//		i++;
+//	}
+//	用for语句实现最大值的比较输出:
+//	for (;i<=9; i++)
+//	if (arr[i] >= max)
+//		max = arr[i];
+//	printf("%d\n", max);
+//	system("pause");
+//	return 0;
 	//将三个数从大到小排列:
 	//算法分析:
 	//先用第一个数与所有的数进行比较,将最大的数放在最前,
@@ -150,19 +150,24 @@
 //求两个数的最大公约数:
 //int main()
 //{
-	/*printf("请输入两个整数(用空格隔开):\n");
-	int i = 1;
-	int max = 1;
-	scanf("%d %d", &x, &y);
-	while(i <= x && i <= y)
-	{
-	if (x % i == 0 && y % i == 0)
-	{
-	max = i;
-	}
-	i++;
-	}
-	printf("最大公约数为:%d\n", max);*/
+//	printf("请输入两个整数(用空格隔开):\n");
+//	int i = 1;
+//	int max = 1;
+//	int x = 0;
+//	int y = 0;
+//	scanf("%d %d", &x, &y);
+//	while (i <= x && i <= y)
+//	{
+//		if (x % i == 0 && y % i == 0)
+//		{
+//			max = i;
+//		}
+//		i++;
+//	}
+//	printf("最大公约数为:%d\n", max);
+//	system("pause");
+//	return 0;
+//}
 	/*int num = 0;
 	printf("输入一个整数(1-7):");
 	scanf("%d", &num);
@@ -232,35 +237,40 @@
 	printf("%s\n", str2);
 	Sleep(200);
 	}*/
-	//练习将三个数从大到小输出
-	//算法分析:定义三个数,以及max,min
-	//第一步比较前两个数,将较大的数赋给max,将较小的数赋给min
-	//第二步将第三个数和max,min分别作比较,
-	//如果第三个数大于max,则输出num3,max,min;如果第三个数小于min则输出max,min,num3;其他情况则输出max,num3,min
-	//int num1 = 0;
-	//int num2 = 0;
-	//int num3 = 0;
-	//printf("请输入三个整数(用空格隔开):");
-	//scanf("%d %d %d", &num1, &num2, &num3);
-	//int max = num1;
-	//int min = num2;//max和min必须定义在输入指令之后
-	//if (num1 <= num2)
-	//{
-	//	max = num2;
-	//	min = num1;
-	//}
-	//if (num3 > max)
-	//{
-	//	printf("%d %d %d", num3, max, min);
-	//}
-	//if (num3 < min)
-	//{
-	//	printf("%d %d %d", max, min, num3);
-	//}
-	//   if (num3 <= max && num3 >= min)
-	//{
-	//	printf("%d %d %d ", max,num3, min);
-	//}
+	/*练习将三个数从大到小输出
+	算法分析:定义三个数,以及max,min
+	第一步比较前两个数,将较大的数赋给max,将较小的数赋给min
+	第二步将第三个数和max,min分别作比较,
+	如果第三个数大于max,则输出num3,max,min;如果第三个数小于min则输出max,min,num3;其他情况则输出max,num3,min*/
+//int main()
+//{
+//	int num1 = 0;
+//	int num2 = 0;
+//	int num3 = 0;
+//	printf("请输入三个整数(用空格隔开):");
+//	scanf("%d %d %d", &num1, &num2, &num3);
+//	int max = num1;
+//	int min = num2;//max和min必须定义在输入指令之后
+//	if (num1 <= num2)
+//	{
+//		max = num2;
+//		min = num1;
+//	}
+//	if (num3 > max)
+//	{
+//		printf("%d %d %d", num3, max, min);
+//	}
+//	if (num3 < min)
+//	{
+//		printf("%d %d %d", max, min, num3);
+//	}
+//	if (num3 <= max && num3 >= min)
+//	{
+//		printf("%d %d %d ", max, num3, min);
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 	//char a[] = "i want to go to bilibili!";
 	//char b[] = "*****no, you do not.*****";

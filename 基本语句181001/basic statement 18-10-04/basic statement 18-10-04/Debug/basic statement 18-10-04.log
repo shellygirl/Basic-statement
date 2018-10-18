@@ -1,8 +1,9 @@
-﻿生成启动时间为 2018/10/14 19:19:41。
+﻿生成启动时间为 2018/10/16 19:53:36。
      1>项目“D:\Basic-statement\基本语句181001\basic statement 18-10-04\basic statement 18-10-04\basic statement 18-10-04.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt "Password-input.c"
          Password-input.c
+     1>d:\basic-statement\基本语句181001\basic statement 18-10-04\basic statement 18-10-04\password-input.c(25): warning C4716: “ChessBoard”: 必须返回一个值
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Basic-statement\基本语句181001\basic statement 18-10-04\Debug\basic statement 18-10-04.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Basic-statement\基本语句181001\basic statement 18-10-04\Debug\basic statement 18-10-04.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Basic-statement\基本语句181001\basic statement 18-10-04\Debug\basic statement 18-10-04.lib" /MACHINE:X86 "Debug\Password-input.obj"
          basic statement 18-10-04.vcxproj -> D:\Basic-statement\基本语句181001\basic statement 18-10-04\Debug\basic statement 18-10-04.exe
@@ -10,4 +11,4 @@
 
 生成成功。
 
-已用时间 00:00:00.39
+已用时间 00:00:00.49
