@@ -5,40 +5,166 @@
 #include<math.h>
 #define ROW 3
 #define COL 3
-//实现三子棋
-//算法分析:
-char ChessBoard()
-{
-	//构建3X3的棋盘并将棋盘中的内容定义为空格:
-	int arr[ROW][COL] = { 0 };
-	int row = 0;
-	int col = 0;
-	for (; row < ROW; row++)
-	{
-		for (; col < COL; col++)
-		{
-			printf("|---|");
-		}
-		printf("\n");
-	}
-	//构建棋盘实现步骤
-}
+//
+////实现三子棋
+////算法分析:
+//void ChessBoard(char arr[ROW][COL])
+//{
+//	//构建3X3的棋盘并将棋盘中的内容定义为空格:
+//	int row = 0;
+//	int col = 0;
+//	for (; row < ROW; row++)
+//	{
+//		for (; col < COL; col++)
+//		{
+//			arr[row][col] = ' ';
+//		}
+//		printf("\n");
+//	}
+//}
+//void PrintChessboard(char arr[ROW][COL], int row, int col)
+//{
+//	row = 0;
+//	col = 0;
+//	for (; row < ROW; row++)
+//	{
+//		printf("%c | %c | %c\n", Chessboard(arr[row][0],arr[row][1],arr[row][2]));
+//		for (; col < COL; col++)
+//		{
+//
+//
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	//一.利用二维数组构建一个 3 X 3 棋盘,并将棋盘的每个格子定义为空格;
+//	ChessBoard();
+//	//二.打印棋盘;
+//	PrintChessboard();
+//	//三.请用户输入一个坐标代表落子,将该坐标的空格替换为o来表示棋子的位置;并判断该坐标是否合法,
+//	//避免所有不合法输入
+//	while (1)
+//	{
+//		PlayerMove();
+//		Judgement();
+//		//四.请电脑输入一个坐标代表落子,将该坐标的空格替换为x,判断该坐标是否合法并避免不合法输入;
+//		ComputerMove();
+//		//五.每落子一次,判定一次胜负,输出该局的结果是x,o,g或者空格;
+//		Judgement();
+//		//六.通过判断输出该局的结果是o还是x还是g或者空格,来判定该局的结果并输出;
+//		Winner();
+//	}
+//	system("pause");
+//	return 0;
+//
+//}
+//指针的解引用:
 int main()
 {
-	//一.利用二维数组构建一个 3 X 3 棋盘,并将棋盘的每个格子定义为空格;
-	ChessBoard();
-	//二.请用户输入一个坐标代表落子,将该坐标的空格替换为o来表示棋子的位置;并判断该坐标是否合法,避免所有不合法输入
-	//PlayerMove();
-	////三.请电脑输入一个坐标代表落子,将该坐标的空格替换为x,判断该坐标是否合法并避免不合法输入;
-	//ComputerMove();
-	////四.每落子一次,判定一次胜负,输出该局的结果是x,o,g或者空格;
-	//Judgement();
-	////五.通过判断输出该局的结果是o还是x还是g或者空格,来判定该局的结果并输出;
-	//Winner();
+	int n = 0x11223344;
+	int* p = &n;
+	*p = 0x55;
+	printf("%x\n", n);
 	system("pause");
 	return 0;
-
 }
+
+//冒泡排序法:
+//升序算法分析:
+//1.将数组中第一个元素赋给一个变量,将该变量与第二个元素相比较,将小值赋给变量.
+//2.再依次与第 3 ,4 , ... n个元素相比较,将小值赋给变量.
+//3.输出变量的值(将最小值放在最前)
+//4.将第二个元素赋给变量,依次比较,输出最小的值.
+//5.以此类推
+
+//void swap(int *x, int *y)//定义一个指针交换函数
+//{
+//	int tmp = *x;
+//	*x = *y;
+//	*y = tmp;
+//
+//}
+//int BubbleSort(int arr[] , int len)
+//{
+//	int bound = 0;//定义一个边界值,意味着已经排好序的数组就不用参与比较了
+//	for ( ; bound < len; ++bound)//二重循环每次循环bound次,bound等于len时结束循环
+//	{
+//		int cur = len - 1;//定义cur的值表示需要被排序的部分,cur - 1表示数组下标的最大值
+//		for (; cur > bound; --cur){//从后向前比较,当需要被排序的部分与
+//			if (arr[cur] < arr[cur - 1])//
+//			{
+//				swap(&arr[cur], &arr[cur - 1]);//当后一个数比前一个数小时,交换两个数的地址(将最小值放在最前面)
+//				//之后bound+1,将最小值的位置固定住,让后面的数进行比较,此处不太明白cur--
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	int i = 0;
+//	int arr[] = { 9, 5, 2, 7 };
+//	int len = sizeof(arr) / sizeof(arr[0]);//len在此处表示数组长度故而不必减一;
+//		int num = BubbleSort(arr, len);
+//		for (; i < len; ++i)
+//		{
+//			printf("%d ", arr[i]);
+//		}
+//		system("pause");
+//		return 0;
+//	
+//}
+
+//int Factor(int n)
+//{
+//	n = 1;
+//	if (n < 1)
+//	{
+//		return 1;
+//	}
+//	return n * Factor(n - 1);
+//}
+//int main()
+//{
+//	int  n;
+//	scanf("%d", &n);
+//	printf("%d\n", Factor(n));
+//	system("pause");
+//	return 0;
+//}
+//int strlen(char* str)
+//{
+//	int count = 0;
+//	while (*str)
+//	{
+//		count++;
+//		*str++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char str[] = "abdff";
+//	printf("%d\n", strlen(str));
+//	system("pause");
+//	return 0;
+//}
+//int strlen(char *str)
+//{
+//	if (*str == '\0')
+//	{
+//		return 0;
+//	}
+//	return 1 + strlen(str+1);
+//}
+//int main()
+//{
+//	char str[] = "abc";
+//	printf("%d", strlen(str));
+//	system("pause");
+//	return 0;
+//}
 
 
 
