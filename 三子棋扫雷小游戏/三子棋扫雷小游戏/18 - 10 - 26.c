@@ -13,9 +13,9 @@ char g_chess_board[ROW][COL];//利用全局变量定义棋盘
 	//利用数组构建3X3的棋盘并将棋盘中的内容定义为空格:
 	int row = 0;
 	int col = 0;
-	for (; row < ROW; row++)//实现行
+	for (row = 0; row < ROW; row++)//实现行
 	{
-		for (; col < COL; col++)
+		for (col = 0; col < COL; col++)
 		{
 			g_chess_board[row][col] = ' ';//将每一行每一列的定义为空格
 		}
@@ -26,9 +26,10 @@ void PrintChessboard()
 	//打印棋盘:
 	int row = 0;
 	int col = 0;
-	for (; row < ROW; row++)
+	for (row = 0; row < ROW; row++)
 	{
-			printf("| %c | %c | %c |\n", g_chess_board[row][0],g_chess_board[row][1],g_chess_board[row][2]);
+			printf("| %c | %c | %c |\n", g_chess_board[row][0],
+				   g_chess_board[row][1],g_chess_board[row][2]);
 			if (row != ROW - 1)
 			{
 				printf("|---|---|---|\n");
@@ -41,31 +42,85 @@ void PlayerMove()//玩家操作
 	//1.请玩家输入一个坐标,
 	//2.读取玩家输入的坐标,判断该坐标是否合法,并判断该坐标上是否已经有子;
 	//3.若玩家坐标输入正确,将该坐标上的空格替换成字符'o'.
-	int row = 0;
-	int col = 0;
-	printf("请玩家落子:\n");
-	while (1)
-	{
-	scanf("%d %d", &row, &col);
-	
-		if (row >= ROW || row < 0 || col < 0 || col >= COL)
-		{
-			printf("输入错误!请重新输入:\n");
-			continue;
-		}
-		if (g_chess_board[row][col] != ' '){
-			printf("该处已有子!请重新输入:\n");
-			continue;
-		}
-		g_chess_board[row][col] == 'x';
-
+	int row = -1;
+	int col = -1;
+	printf("请玩家落子:");
+	while (1){
+			scanf("%d %d", &row, &col);
+			if (row >= ROW || row < 0 || col < 0 || col >= COL)
+			{
+				printf("输入错误!请重新输入:");
+				continue;
+			}
+			if (g_chess_board[row][col] != ' '){
+				printf("该处已有子!请重新输入:");
+				continue;
+			}
+			g_chess_board[row][col] = 'x';
+			break;
 	}
 
 }
-char Judgement()
-{
-
+void ComputerMove(){//电脑落子随机产生两个坐标\思考如何让落子更加智能
+	int row = -1;
+	int col = -1;
+	printf("请电脑落子:\n");
+	while (1){
+		row = rand() % ROW;
+		col = rand() % COL;
+		if (g_chess_board[row][col] == ' ')
+		{
+			g_chess_board[row][col] = 'o';
+			break;
+		}
+	}
 }
+char Judgement()//判断游戏是否决出胜负
+{
+	//1.判断是否有三个子连在一起:横向,纵向,对角线
+	for (int row = 0; row < ROW; row++){
+
+		if (g_chess_board[row][0] == g_chess_board[row][1] &&
+			g_chess_board[row][0] == g_chess_board[row][2] &&
+			g_chess_board[row][0] != ' '){
+			return g_chess_board[row][0];
+		}
+
+	}//检查每行是否出现三个字符相同的情况,是则返回该处字符
+	for (int col = 0; col < COL; col++)
+	{
+		if (g_chess_board[0][col] == g_chess_board[1][col] &&
+			g_chess_board[0][col] == g_chess_board[2][col] &&
+			g_chess_board[0][col] != ' ')
+		{
+			return g_chess_board[0][col];
+		}
+	}//检查每列是否出现三字符连线,是则返回该处字符
+	if (g_chess_board[0][0] == g_chess_board[1][1] &&
+		g_chess_board[0][0] == g_chess_board[2][2] &&
+		g_chess_board[0][0] != ' '){
+		return g_chess_board[0][0];
+	}
+	if (g_chess_board[0][2] == g_chess_board[1][1] &&
+		g_chess_board[0][2] == g_chess_board[2][0] &&
+		g_chess_board[0][2] != ' '){
+		return g_chess_board[0][2];
+	}//检查对角线是否出现三字符连线,是则返回该处字符
+	if (IsFull()){
+		return 'p';//检查是否和棋,是则返回 p
+	}
+	return ' ';//全部否定返回空格
+}
+int IsFull(){
+	for (int row = 0; row < ROW; row++){
+		for (int col = 0; col < COL; col++){
+			if (g_chess_board[row][col] == ' '){
+				return 0;//如果出现空格则返回 0 表示非和棋
+			}
+		}
+	}return 1;
+}
+
 
 int main()
 {
@@ -76,54 +131,62 @@ int main()
 	PrintChessboard();
 	//三.请用户输入一个坐标代表落子,将该坐标的空格替换为o来表示棋子的位置;并判断该坐标是否合法,
 	//避免所有不合法输入
-	//while (1)
-	//{
-	//	PlayerMove();
-	//	winner = Judgement();
-	//	if (winner != ' ')
-	//	{
-	//		printf("游戏结束");
-	//		break;
-	//	}
-	//	if (winner == 'x')
-	//	{
-	//		printf("玩家胜利!\n");
-	//	}
-	//	else if (winner == 'o')
-	//	{
-	//		printf("电脑胜利!\n");
-	//	}
-	//	else if (winner == 'p')
-	//	{
-	//		printf("和棋!\n");
-	//	}
-	//	//四.请电脑输入一个坐标代表落子,将该坐标的空格替换为x,判断该坐标是否合法并避免不合法输入;
-	//	ComputerMove();
-	//	//五.每落子一次,判定一次胜负,输出该局的结果是x,o,g或者空格;
-	//	winner = Judgement();
-	//	if (winner != ' ')
-	//	{
-	//		break;
-	//	}
-	//}
-	//	if (winner == 'x')
-	//	{
-	//		printf("玩家胜利!\n");
-	//	}
-	//	else if (winner == 'o')
-	//	{
-	//		printf("电脑胜利!\n");
-	//	}
-	//	else if (winner == 'p')
-	//	{
-	//		printf("和棋!\n");
-	//	}
-	//	//六.通过判断输出该局的结果是o还是x还是g或者空格,来判定该局的结果并输出;
-		
+	while (1)
+	{
+		PlayerMove();
+		winner = Judgement();
+		if (winner != ' ')
+		{
+			printf("游戏结束!");
+			if (winner == 'x')
+			{
+				printf("玩家胜利!\n");
+			}
+			else if (winner == 'o')
+			{
+				printf("电脑胜利!\n");
+			}
+			else if (winner == 'p')
+			{
+				printf("和棋!\n");
+			}
+			PrintChessboard();
+			break;
+		}
+		PrintChessboard();
+		//四.请电脑输入一个坐标代表落子,将该坐标的空格替换为x,判断该坐标是否合法并避免不合法输入;
+		ComputerMove();
+		//五.每落子一次,判定一次胜负,输出该局的结果是x,o,g或者空格;
+		winner = Judgement();
+		if (winner != ' ')
+		{
+			printf("游戏结束!");
+			if (winner == 'x')
+			{
+				printf("玩家胜利!\n");
+			}
+			else if (winner == 'o')
+			{
+				printf("电脑胜利!\n");
+			}
+			else if (winner == 'p')
+			{
+				printf("和棋!\n");
+			}
+			PrintChessboard();
+			break;
+		}
+		PrintChessboard();
+		//六.通过判断输出该局的结果是o还是x还是g或者空格,来判定该局的结果并输出;
+	}
 	system("pause");
 	return 0;
 
 }
+//小游戏扫雷的实现:
+//一. 扫雷的游戏规则:在一个棋盘中的任意几处隐藏着地雷,随意翻开
+
+
 //指针的解引用:
 //int Find(int arr[], int size, int To_Find)
 //{
